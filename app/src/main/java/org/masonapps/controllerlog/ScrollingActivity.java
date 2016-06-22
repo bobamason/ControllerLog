@@ -24,12 +24,12 @@ public class ScrollingActivity extends AppCompatActivity {
         
         mScrollView = (NestedScrollView) findViewById(R.id.logScrollView);
         mScrollView.setSmoothScrollingEnabled(true);
-        mScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                mShouldScroll = false;
-            }
-        });
+//        mScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+//            @Override
+//            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+//                mShouldScroll = false;
+//            }
+//        });
         
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,22 +45,25 @@ public class ScrollingActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        print("onKeyDown() ");
-        println(event.toString());
+        print("onKeyDown() -> ");
+        println(KeyEvent.keyCodeToString(keyCode));
+        println();
         return super.onKeyDown(keyCode, event);
     }
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        print("onKeyUp() ");
-        println(event.toString());
+        print("onKeyUp() -> ");
+        println(KeyEvent.keyCodeToString(keyCode));
+        println();
         return super.onKeyUp(keyCode, event);
     }
 
     @Override
     public boolean onGenericMotionEvent(MotionEvent event) {
-        print("onGenericMotionEvent() ");
+        print("onGenericMotionEvent() -> ");
         println(event.toString());
+        println();
         return super.onGenericMotionEvent(event);
     }
 
